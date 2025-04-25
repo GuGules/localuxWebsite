@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href={{ asset('imgs/favicon.png') }}
+        <link rel="icon" href="{{ asset('imgs/favicon.png') }}">
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
@@ -15,6 +15,26 @@
         {% endblock %}
     </head>
     <body>
+    <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img src="{{ asset('imgs/favicon.png') }}" width="40rem" title="Vers Localux | Page d'acceuil" alt='logo'/>&nbsp;&nbsp;&nbsp;
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 text-white">Accueil</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Offres</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Réserver</a></li>
+        </ul>
+
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2">Se Connecter</button>
+          <button type="button" class="btn btn-warning">S'inscrire</button>
+        </div>
+      </div>
+    </div>
+  </header>
         {% block body %}{% endblock %}
     </body>
 </html>
