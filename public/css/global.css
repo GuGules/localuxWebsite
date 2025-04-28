@@ -1,0 +1,45 @@
+body {
+overflow-x: hidden;
+}
+
+.prez-box{
+    background-color: #212529;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    border-radius: 25px;
+    color: white;
+}
+
+.hidden-separator {
+    padding-top: 1rem;
+    color: white
+    
+}
+
+#cookie-banner {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    background-color: #fff9c4;
+    border: 5px #FFFF00 solid;
+}
+
+.button-cookies {
+    border-radius: 25px;
+    background-color: #ff7f00;
+    border: #FFFF00 solid 3px;
+    color: white;
+}
+.button-cookies:hover {
+    background-color: white;
+    border: black solid 3px;
+    color: black;
+    transition: 0.3s;
+}
+
+
+.hidden {
+    display: none;
+}
+

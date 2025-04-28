@@ -9,16 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
 class SansChauffeur extends Reservation
 {
     #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Formule $formule = null;
 
     public function __construct()
     {
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     public function getFormule(): ?Formule

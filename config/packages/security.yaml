@@ -1,30 +1,29 @@
 security:
-    # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
-        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
-    # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
+       App\Entity\Client:
+    #plaintext signifie que les mots de passe ne sont pas hashés
+        algorithm: auto
     providers:
-        users_in_memory: { memory: null }
+      app_user_provider:
+        entity:
+           # classe d'utilisateurs (elle peut avoir un autre nom que Utilisateur)
+            class: App\Entity\Client
+            property: login # propriété de la classe d'utilisateurs qui joue le rôle de login
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-        main:
-            lazy: true
-            provider: users_in_memory
-
-            # activate different ways to authenticate
-            # https://symfony.com/doc/current/security.html#the-firewall
-
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
-
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
-    access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
-
+       dev:
+           pattern: ^/(_(profiler|wdt)|css|images|js)/
+           security: false
+       main:
+            form_login:
+               # "login" is the name of the route created previously
+               login_path: app_login
+               check_path: app_login
+            provider:  app_user_provider
+            logout:
+                # La route de deconnexion
+                path: app_logout
+                # La route sur laquelle doit être redirigé l'utilisateur après une déconnexion
+                target: app_home
 when@test:
     security:
         password_hashers:

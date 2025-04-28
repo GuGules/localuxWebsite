@@ -1,0 +1,20 @@
+.text {
+    font-size: 1.5rem;
+}
+
+.button-0 {
+    background-color: white;
+    border:1px black solid;
+    border-radius: 5px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.button-0:hover {
+    background-color: #212529;
+    color:white;
+    border:1px white solid;
+    transition: 0.3s;
+}
