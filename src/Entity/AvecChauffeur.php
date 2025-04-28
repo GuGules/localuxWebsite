@@ -16,6 +16,9 @@ class AvecChauffeur extends Reservation
     #[ORM\Column]
     private ?float $prix = null;
 
+    #[ORM\ManyToOne(inversedBy: 'avecChauffeurs')]
+    private ?Chauffeur $chauffeur = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -41,6 +44,18 @@ class AvecChauffeur extends Reservation
     public function setPrix(float $prix): static
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getChauffeur(): ?Chauffeur
+    {
+        return $this->chauffeur;
+    }
+
+    public function setChauffeur(?Chauffeur $chauffeur): static
+    {
+        $this->chauffeur = $chauffeur;
 
         return $this;
     }

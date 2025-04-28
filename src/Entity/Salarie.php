@@ -34,6 +34,9 @@ class Salarie
     #[ORM\OneToMany(targetEntity: Log::class, mappedBy: 'user')]
     private Collection $logs;
 
+    #[ORM\Column(length: 255)]
+    private ?string $login = null;
+
     public function __construct()
     {
         $this->logs = new ArrayCollection();
@@ -118,6 +121,18 @@ class Salarie
                 $log->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLogin(): ?string
+    {
+        return $this->login;
+    }
+
+    public function setLogin(string $login): static
+    {
+        $this->login = $login;
 
         return $this;
     }
