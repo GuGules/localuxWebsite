@@ -24,9 +24,16 @@ class PartiesVehicules
     #[ORM\ManyToMany(targetEntity: TypeVehicule::class, inversedBy: 'partiesVehicules')]
     private Collection $typesVehicules;
 
+    /**
+     * @var Collection<int, Vehicule>
+     */
+    #[ORM\ManyToMany(targetEntity: Vehicule::class, mappedBy: 'parties')]
+    private Collection $vehicules;
+
     public function __construct()
     {
         $this->typesVehicules = new ArrayCollection();
+        $this->vehicules = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -66,6 +73,33 @@ class PartiesVehicules
     public function removeTypesVehicule(TypeVehicule $typesVehicule): static
     {
         $this->typesVehicules->removeElement($typesVehicule);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Vehicule>
+     */
+    public function getVehicules(): Collection
+    {
+        return $this->vehicules;
+    }
+
+    public function addVehicule(Vehicule $vehicule): static
+    {
+        if (!$this->vehicules->contains($vehicule)) {
+            $this->vehicules->add($vehicule);
+            $vehicule->addParty($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVehicule(Vehicule $vehicule): static
+    {
+        if ($this->vehicules->removeElement($vehicule)) {
+            $vehicule->removeParty($this);
+        }
 
         return $this;
     }

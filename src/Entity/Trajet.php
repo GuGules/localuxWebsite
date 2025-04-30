@@ -27,6 +27,9 @@ class Trajet
     #[ORM\OneToMany(targetEntity: Chauffeur::class, mappedBy: 'trajet')]
     private Collection $chauffeurs;
 
+    #[ORM\Column]
+    private ?float $prix = null;
+
     public function __construct()
     {
         $this->chauffeurs = new ArrayCollection();
@@ -87,6 +90,18 @@ class Trajet
                 $chauffeur->setTrajet(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPrix(): ?float
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(float $prix): static
+    {
+        $this->prix = $prix;
 
         return $this;
     }
