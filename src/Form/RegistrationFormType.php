@@ -31,6 +31,7 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Vous devez accepter la politique de confidentialité',
                     ]),
                 ],
+                'label' => false
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,

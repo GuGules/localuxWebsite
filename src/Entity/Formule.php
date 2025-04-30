@@ -23,9 +23,6 @@ class Formule
     #[ORM\Column]
     private ?int $nbKms = null;
 
-    #[ORM\ManyToOne(inversedBy: 'formule')]
-    private ?SansChauffeur $sansChauffeur = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -63,18 +60,6 @@ class Formule
     public function setNbKms(int $nbKms): static
     {
         $this->nbKms = $nbKms;
-
-        return $this;
-    }
-
-    public function getSansChauffeur(): ?SansChauffeur
-    {
-        return $this->sansChauffeur;
-    }
-
-    public function setSansChauffeur(?SansChauffeur $sansChauffeur): static
-    {
-        $this->sansChauffeur = $sansChauffeur;
 
         return $this;
     }

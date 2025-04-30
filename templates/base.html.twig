@@ -32,7 +32,7 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="{{ path('app_home') }}" class="nav-link px-2 text-white">Accueil</a></li>
-          <li><a href="{{ path('app_home') }}#formules" class="nav-link px-2 text-white">Offres</a></li>
+          <li><a href="{{ path('app_offres') }}" class="nav-link px-2 text-white">Offres</a></li>
           <li><a href="#" class="nav-link px-2 text-white">Réserver</a></li>
         </ul>
         {% if not is_granted('IS_AUTHENTICATED_FULLY')%}
@@ -59,10 +59,9 @@
   <div class="container">
     {% block body %}{% endblock %}
     {% block scripts %}{% endblock %}
-    <script src=" {{ asset('js/cookies.js') }}"/>
+    <script src=" {{ asset('js/cookies.js') }}"></script>
   </div>
-
-<div class="container">
+  <div class="container">
   <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
     <div class="col mb-3">
       <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none" aria-label="Bootstrap">
@@ -79,7 +78,7 @@
       <h5>Pages</h5>
       <ul class="nav flex-column">
         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Accueil</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Offres</a></li>
+        <li class="nav-item mb-2"><a href="{{ path('app_offres') }}" class="nav-link p-0 text-body-secondary">Offres</a></li>
         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Réverver</a></li>
       </ul>
     </div>
@@ -108,7 +107,7 @@
         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Modalités de remboursement</a></li>
       </ul>
     </div>
-  </footer>
-</div>
+  </div>
+  </footer></div>
   </body>
 </html>
